@@ -1,25 +1,17 @@
-# 后台系统配置
 backend:
     name: github
-    repo: Spr-Aachen/Twilight # 请替换为您的 GitHub 仓库
-    branch: main # 请替换为您的分支名称
-    site_domain: twilight.spr-aachen.com # 请替换为您的域名
-    base_url: https://twilight.spr-aachen.com  # 请替换为您的 URL
-    auth_endpoint: oauth # OAuth 路由由集成提供
-
-
+    repo: mocicc/Twilight
+    branch: main
+    site_domain: zuimei.de
+    base_url: https://proxy.zuimei.de
+    auth_endpoint: /auth
 # 设置后台系统语言 (zh_Hans 简体中文 | en 英文 | ...)
-locale: en
-
-
+locale: zh_Hans
 # 媒体目录配置
-media_folder: "public/assets/images" # 媒体文件存储路径
-public_folder: "/assets/images" # 公共访问路径
-
-
+media_folder: "src/content/uploads"
+public_folder: "/uploads"
 # 内容管理配置
 collections:
-
     - # 文章
         # 集合名称
         name: "posts"
@@ -44,15 +36,6 @@ collections:
             summary: '{{dirname}}'
             # 是否支持子文件夹
             subfolders: false # 由于文章是独立的 .md 文件，需要设为 false 以防止 CMS 寻找文件夹下的 _index.md
-        ## 列表页分组配置
-        #view_groups:
-        #    - # 按文件夹分组
-        #        # 分组标签
-        #        label: "Folder"
-        #        # 分组依据的字段
-        #        field: "path"
-        #        # 分组匹配模式
-        #        pattern: '^([^/]+)/' # 匹配第一个路径段（即文件夹名）
         # 允许创建新条目
         create: true
         # 文件命名规则
@@ -80,7 +63,6 @@ collections:
                 { name: "draft", label: "Draft", widget: "boolean", default: false }
             - # 正文
                 { name: "body", label: "Body", widget: "markdown" }
-
     - # 日记
         # 集合名称
         name: "diary"
@@ -114,7 +96,6 @@ collections:
                 required: false
                 default: []
                 field: { name: "image", label: "Image", widget: "image" }
-
     - # 相册
         # 集合名称
         name: "albums"
@@ -171,7 +152,6 @@ collections:
                         { name: "date", label: "Date", widget: "datetime", required: false }
             - # 是否可见
                 { name: "visible", label: "Visible", widget: "boolean", default: true, required: false }
-
     - # 项目
         # 集合名称
         name: "projects"
@@ -216,7 +196,6 @@ collections:
                 { name: "featured", label: "Featured", widget: "boolean", required: false, default: false }
             - # 标签
                 { name: "tags", label: "Tags", widget: "list", required: false, default: [] }
-
     - # 技能
         # 集合名称
         name: "skills"
@@ -257,7 +236,6 @@ collections:
                { name: "certifications", label: "Certifications", widget: "list", required: false, default: [] }
             - # 主题颜色
                { name: "color", label: "Color", widget: "string", required: false }
-
     - # 时间线
         # 集合名称
         name: "timeline"
@@ -309,7 +287,6 @@ collections:
                 { name: "icon", label: "Icon", widget: "string", required: false }
             - # 主题颜色
                 { name: "color", label: "Color", widget: "string", required: false }
-
     - # 友链
         # 集合名称
         name: "friends"
@@ -335,7 +312,6 @@ collections:
                 { name: "siteurl", label: "Site URL", widget: "string" }
             - # 标签
                 { name: "tags", label: "Tags", widget: "list", required: false, default: [] }
-
     - # 友链说明
         # 集合名称
         name: "page_friends"
@@ -348,13 +324,8 @@ collections:
                 label: "Friends"
                 file: "src/content/friends.md"
                 fields:
-                    #- # 名称
-                    #    { name: "title", label: "Title", widget: "string", required: false }
-                    #- # 描述
-                    #    { name: "description", label: "Description", widget: "string", required: false }
                     - # 内容
                         { name: "body", label: "Body", widget: "markdown" }
-
     - # 关于
         # 集合名称
         name: "page_about"
@@ -367,14 +338,8 @@ collections:
                 label: "About"
                 file: "src/content/about.md"
                 fields:
-                    #- # 名称
-                    #    { name: "title", label: "Title", widget: "string", required: false }
-                    #- # 描述
-                    #    { name: "description", label: "Description", widget: "string", required: false }
                     - # 内容
                         { name: "body", label: "Body", widget: "markdown" }
-
-
 # 编辑器配置
 editor:
     # 启用预览功能
